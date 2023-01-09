@@ -1,4 +1,4 @@
-<form>
+<form method="post" action="../pages/register.php">
     <div class="m-3">
         <label for="firstName" class="form-label">First Name</label>
         <input type="text" class="form-control" id="firstName">
@@ -24,6 +24,6 @@
     </div>
 
     <div class="m-3 mx-auto">
-        <button type="submit" class="btn btn-primary">Login</button>
+        <button type="submit" class="btn btn-primary">Register</button>
     </div>
 </form>
