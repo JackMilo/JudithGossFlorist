@@ -1,3 +1,13 @@
+<?php
+    if ($_SERVER['REQUEST_METHOD'] == 'POST')
+    {
+        include_once "inc/Connector.php";
+        $db = new Connector;
+
+        
+    }
+?>
+
 <form method="post" action="../pages/login.php">
     <div class="m-3">
         <label for="exampleInputEmail1" class="form-label">Email address</label>
