@@ -5,7 +5,7 @@
     {
         include "../inc/classes/Connect.php";
         $db = new Connect;
-
+        
         $_SESSION["user"] = $db->login($_POST["email"], $_POST["password"]);
 
         header("Location: ../pages/home.php");

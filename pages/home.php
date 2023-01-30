@@ -6,18 +6,23 @@
 
     include_once "../inc/classes/Connect.php";
     $db = new Connect;
-
-    if (isset($_SESSION['user']))
-    {
-        echo "<h1>Welcome " . $_SESSION['user']['firstName'] . "</h1>";
-    }
-    else
-    {
-        echo "<h1>Welcome<h1>";
-    }
 ?>
 
 <div class="container">
+    <div class="row">
+        <div class="col d-flex justify-content-center">
+            <?php
+                if (isset($_SESSION['user']['firstName']))
+                {
+                    echo "<h1>Welcome " . $_SESSION['user']['firstName'] . "</h1>";
+                }
+                else
+                {
+                    echo "<h1>Welcome<h1>";
+                }
+            ?>
+        </div>
+    </div>
     <div class="row">
         <div class="col d-flex justify-content-center">
             <a class="btn btn-primary" href="../pages/home.php" role="button">All Flowers</a>
@@ -41,16 +46,16 @@
                     while($row = mysqli_fetch_assoc($query))
                     {
                         ?>
-                        <div class="col-4 d-flex justify-content-center">
-                            <div class="card" style="width: 18rem;">
-                                <div class="card-body">
-                                    <h5 class="card-title"><?=$row['name']?></h5>
-                                    <h6 class="card-title"><?=$row['description']?></h5>
-                                    <img class="card-img-top" src="<?="../img/".$row["imgURL"]?>" alt="Card image cap">
+                            <div class="col-4 d-flex justify-content-center">
+                                <div class="card" style="width: 18rem;">
+                                    <div class="card-body">
+                                        <img class="card-img-top" src="<?="../img/".$row["imgURL"]?>" alt="Card image cap">
+                                        <h5 class="card-title d-flex justify-content-center"><?=$row['name']?></h5>
+                                        <a class="btn btn-primary d-flex justify-content-center" href="../pages/product.php?id=<?=$row['ID']?>" role="button">View Product</a>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <?php                
+                        <?php          
                     }
                 }
             ?>

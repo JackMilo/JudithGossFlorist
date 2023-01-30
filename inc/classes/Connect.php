@@ -37,5 +37,39 @@
         {
             return $this->query("SELECT * FROM product WHERE typeID = '$typeID'");
         }
+        public function getProductsByID(int $ID)
+        {
+            return $this->query("SELECT * FROM product WHERE id = '$ID'");
+        }
+
+        public function checkOrder(int $userID)
+        {
+            //return $this->query("SELECT * FROM order WHERE userid = '$userID'");
+        }
+        public function createOrder(int $userID)
+        {
+
+        }
+        public function addToCart(int $userID, int $productID)
+        {
+            if ($this->checkOrder($userID))
+            {
+                echo "wombat";
+            }
+            //return $this->query("INSERT INTO ");
+        }
+        public function getCart(int $userID)
+        {
+
+        }
+
+        public function makeReview(int $userID, int $productID, int $stars, string $comment)
+        {
+            return $this->query("INSERT INTO review (userID, productID, stars, comment) VALUES ('$userID', '$productID', '$stars', '$comment')");
+        }
+        public function getReviewsByID(int $productID)
+        {
+            return $this->query("SELECT * FROM review WHERE productID = '$productID'");
+        }
     }
 ?>
