@@ -25,8 +25,17 @@
         {
             if ($password == $rpassword)
             {
-                $this->query("INSERT INTO user (firstName, secondName, email, password) VALUES ('$firstName', '$secondName', '$email', '$password')");
+                return $this->query("INSERT INTO user (firstName, secondName, email, password) VALUES ('$firstName', '$secondName', '$email', '$password')");
             }
+        }
+
+        public function getAllProducts()
+        {
+            return $this->query("SELECT * FROM product");
+        }
+        public function getProductsByType(int $typeID)
+        {
+            return $this->query("SELECT * FROM product WHERE typeID = '$typeID'");
         }
     }
 ?>
