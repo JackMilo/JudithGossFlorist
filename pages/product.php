@@ -31,6 +31,11 @@
                 </div>
                 <div class="row d-flex justify-content-center">
                     <div class="col-8 d-flex justify-content-center">
+                        <h2>£<?=$_SESSION["product"]["price"]?></h2>
+                    </div>
+                </div>
+                <div class="row d-flex justify-content-center">
+                    <div class="col-8 d-flex justify-content-center">
                         <?php if (isset($_SESSION["user"]["firstName"])):?>
                             <a class="btn btn-primary d-flex justify-content-center" href="../pages/addToCart.php" role="button">Add to Cart</a>
                         <?php endif; ?>
