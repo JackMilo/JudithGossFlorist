@@ -5,10 +5,21 @@
     {
         include "../inc/classes/Connect.php";
         $db = new Connect;
-        
-        $_SESSION["user"] = $db->login($_POST["email"], $_POST["password"]);
 
-        header("Location: ../pages/home.php");
+        $_SESSION["user"] = $db->login($_POST["email"], $_POST["password"]);
+        
+        if (isset($_SESSION["user"]["ID"]))
+        {
+            header("Location: ../pages/home.php");
+        }
+        else
+        {
+            ?>
+                <div class="alert alert-danger" role="alert">
+                    Incorrect Username or Password.
+                </div>
+            <?php
+        }
     }
 ?>
 

@@ -4,9 +4,18 @@
         include "../inc/classes/Connect.php";
         $db = new Connect;
 
-        $db->register($_POST["firstName"], $_POST["secondName"], $_POST["email"], $_POST["password"], $_POST["rpassword"]);
-
-        header("Location: ../pages/login.php");
+        if ($db->register($_POST["firstName"], $_POST["secondName"], $_POST["email"], $_POST["password"], $_POST["rpassword"]))
+        {
+            header("Location: ../pages/login.php");
+        }
+        else
+        {
+            ?>
+                <div class="alert alert-danger" role="alert">
+                    Passwords do not match.
+                </div>
+            <?php
+        }
     }
 ?>
 
